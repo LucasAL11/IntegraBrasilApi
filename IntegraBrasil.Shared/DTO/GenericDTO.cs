@@ -1,7 +1,7 @@
 ﻿using System.Dynamic;
 using System.Net;
 
-namespace IntegraBrasil.DTO;
+namespace IntegraBrasil.Shared.DTO;
 
 public class GenericDTO<T> where T : class
 {

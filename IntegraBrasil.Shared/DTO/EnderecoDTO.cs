@@ -1,24 +1,15 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace IntegraBrasil.Shared.Models;
+namespace IntegraBrasil.Shared.DTO;
 
-public class EnderecoModel
+public class EnderecoDTO
 {
-    [JsonPropertyName("cep")]
     public string? Cep { get; set; }
-
-    [JsonPropertyName("state")]
     public string? Estado { get; set; }
-
-    [JsonPropertyName("city")]
     public string? Cidade { get; set; }
-
-    [JsonPropertyName("neighborhood")]
     public string? Regiao { get; set; }
-
-    [JsonPropertyName("street")]
     public string? Rua { get; set; }
-
-    [JsonPropertyName("service")]
+    
+    [JsonIgnore]
     public string? Servico { get; set; }
 }

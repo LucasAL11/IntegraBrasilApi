@@ -7,11 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\IntegraBrasil.Shared\IntegraBrasil.Shared.csproj" />
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="AutoMapper" Version="12.0.1" />
+      <ProjectReference Include="..\IntegraBrasil.Core\IntegraBrasil.Core.csproj" />
+      <ProjectReference Include="..\IntegraBrasil.Shared\IntegraBrasil.Shared.csproj" />
     </ItemGroup>
 
 </Project>
