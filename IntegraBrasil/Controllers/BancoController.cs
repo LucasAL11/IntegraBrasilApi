@@ -16,9 +16,19 @@ public class BancoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> BuscarEndereco()
+    public async Task<IActionResult> BuscarTodosBancos()
     {
         var response = await _services.BuscarTodosBancos();
+
+        return response.CodigoHttp == HttpStatusCode.OK
+            ? Ok(response.DadosRetorno)
+            : StatusCode((int)response.CodigoHttp, response.ErroRetorno);
+    }
+
+    [HttpGet("{codigo:int}")]
+    public async Task<IActionResult> BuscarBancoPorCodigo(int codigo)
+    {
+        var response = await _services.BuscarBancoPorCodigo(codigo);
 
         return response.CodigoHttp == HttpStatusCode.OK
             ? Ok(response.DadosRetorno)

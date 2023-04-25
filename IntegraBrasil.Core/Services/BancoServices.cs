@@ -21,8 +21,9 @@ public class BancoServices : IBancoServices
         return _mapper.Map<GenericDTO<List<BancoDTO>>>(bancos);
     }
 
-    public Task<GenericDTO<BancoDTO>> BuscarBancoPorCodigo()
+    public async Task<GenericDTO<BancoDTO>> BuscarBancoPorCodigo(int codigo)
     {
-        throw new NotImplementedException();
+        var bancos = await _brasilApiService.BuscarBancoPorCodigo(codigo);
+        return _mapper.Map<GenericDTO<BancoDTO>>(bancos);
     }
 }

@@ -7,5 +7,5 @@ public interface IBrasilApiService
 {
     Task<GenericDTO<EnderecoModel>> BuscarEnderecoPorCep(string cep);
     Task<GenericDTO<List<BancoModel>>> BuscarTodosBancos();
-    Task<GenericDTO<BancoModel>> BuscarBancoPorCodigo();
+    Task<GenericDTO<BancoModel>> BuscarBancoPorCodigo(int codigo);
 }
