@@ -22,16 +22,37 @@ public class BrasilApiService : IBrasilApiService
             response.CodigoHttp = httpResponseMessage.StatusCode;
             response.DadosRetorno = deserializeJson;
         }
-
-        response.CodigoHttp = httpResponseMessage.StatusCode;
-        response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseObject);
-
+        else
+        {
+            response.CodigoHttp = httpResponseMessage.StatusCode;
+            response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseObject);
+        }
+        
         return response;
     }
 
-    public Task<GenericDTO<BancoModel>> BuscarTodosBancos()
+    public async Task<GenericDTO<List<BancoModel>>> BuscarTodosBancos()
     {
-        throw new NotImplementedException();
+        var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/banks/v1");
+        var response = new GenericDTO<List<BancoModel>>();
+        using var client = new HttpClient();
+        var httpResponseMessage = await client.SendAsync(request);
+        var responseObject = await httpResponseMessage.Content.ReadAsStringAsync();
+        var deserializeJson = JsonSerializer.Deserialize<List<BancoModel>>(responseObject);
+        
+        if (httpResponseMessage.IsSuccessStatusCode)
+        {
+            response.CodigoHttp = httpResponseMessage.StatusCode;
+            response.DadosRetorno = deserializeJson;
+        }
+        else
+        {
+            
+            response.CodigoHttp = httpResponseMessage.StatusCode;
+            response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseObject);
+        }
+        
+        return response;
     }
 
     public Task<GenericDTO<BancoModel>> BuscarBancoPorCodigo()
