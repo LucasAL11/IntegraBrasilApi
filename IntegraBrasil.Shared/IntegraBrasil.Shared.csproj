@@ -6,9 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\IntegraBrasil.Shared\IntegraBrasil.Shared.csproj" />
-      <ProjectReference Include="..\IntegraBrasil\IntegraBrasil.csproj" />
-    </ItemGroup>
-
 </Project>

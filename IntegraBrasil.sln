@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegraBrasil", "IntegraBra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegraBrasil.Core", "IntegraBrasil.Core\IntegraBrasil.Core.csproj", "{C6198A2D-567D-492E-B68E-10208828557C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegraBrasil.Shared", "IntegraBrasil.Shared\IntegraBrasil.Shared.csproj", "{BE780275-4139-4461-B754-55CB7BF27A10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C6198A2D-567D-492E-B68E-10208828557C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6198A2D-567D-492E-B68E-10208828557C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6198A2D-567D-492E-B68E-10208828557C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE780275-4139-4461-B754-55CB7BF27A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE780275-4139-4461-B754-55CB7BF27A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE780275-4139-4461-B754-55CB7BF27A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE780275-4139-4461-B754-55CB7BF27A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
