@@ -76,4 +76,27 @@ public class BrasilApiService : IBrasilApiService
 
         return response;
     }
+
+    public async Task<GenericDTO<DDDModel>> BuscarEstadoCidadePorDDD(int ddd)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, $"https://brasilapi.com.br/api/ddd/v1/{ddd}");
+        var response = new GenericDTO<DDDModel>();
+        using var client = new HttpClient();
+        var httpResponseMessage = await client.SendAsync(request);
+        var responseObject = await httpResponseMessage.Content.ReadAsStringAsync();
+        var deserializeJson = JsonSerializer.Deserialize<DDDModel>(responseObject);
+
+        if (httpResponseMessage.IsSuccessStatusCode)
+        {
+            response.CodigoHttp = httpResponseMessage.StatusCode;
+            response.DadosRetorno = deserializeJson;
+        }
+        else
+        {
+            response.CodigoHttp = httpResponseMessage.StatusCode;
+            response.ErroRetorno = JsonSerializer.Deserialize<ExpandoObject>(responseObject);
+        }
+
+        return response;
+    }
 }

@@ -13,9 +13,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IEnderecoService, EnderecoService>();
 builder.Services.AddSingleton<IBancoServices, BancoServices>();
 builder.Services.AddSingleton<IBrasilApiService, BrasilApiService>();
+builder.Services.AddSingleton<IDDDService, DDDService>();
 
 builder.Services.AddAutoMapper(typeof(EnderecoMapper));
 builder.Services.AddAutoMapper(typeof(BancoMapper));
+builder.Services.AddAutoMapper(typeof(DDDMapper));
 
 var app = builder.Build();
 
